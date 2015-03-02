@@ -9,7 +9,7 @@ The main program does the following task:
 This part includes downloading the data, scaling the data to center at 0.0 with standard deviation of 1.0, and prepare the data for gradient descent algorithm.
 
 #### subfunctions used: 
-featureNormalize.m
+* featureNormalize.m: scale the variables to be centered at 0.0 with standard deviation of 1.0. 
 
 ### Part 2: Gradient Descent
 
@@ -19,11 +19,13 @@ This part uses gradient descent to calculate the cost function J. The cost funct
 
 With cost function and its gradient with thetas, gradient descent is used to find the thetas that minimize the cost function J. 
 
+As a result, the optimal thetas are found and listed out.
+
 #### subfunctions used:
 
-* gradientDescentMulti.m
+* gradientDescentMulti.m: 
 compute through iteration to find the thetas that minimize cost function J. 
-* computeCostMulti.m
+* computeCostMulti.m: 
 compute the cost function for multiviate linear regression.
 
 ### Part 3: Validation
