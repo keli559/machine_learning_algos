@@ -6,4 +6,9 @@ This case originated from Edx Analytics Edge class. I expanded it further using 
 
 Please take a look of:
 
-writeup.md for documentation
+* writeup.md : gives a thorough analysis of the data, regarding the variables, and some exploratory analysis of data.
+* ./code/ : provides a detailed octave code to run the linear regression model for this problem. 
+
+
+
+
