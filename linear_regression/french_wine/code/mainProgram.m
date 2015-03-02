@@ -56,6 +56,7 @@ figure;
 plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
 xlabel('Number of iterations');
 ylabel('Cost J');
+print('Figure.png')
 
 % Display gradient descent's result
 	fprintf('Theta computed from gradient descent: \n');
@@ -77,6 +78,8 @@ ytest = data_test(:, 2);
 	% SST, sum squre total = sum((test-training_mean)^2)
 	SST = sum((yprediction - mean(y)).^2.0);
 	R2 = 1.0-SSE/SST;
-	fprintf('For out-of-sampling, he R2 ')
+	fprintf('\n')
+	fprintf('The predicted price: y_predict = %.2f, the actual price: y= %.2f\n', [yprediction, ytest]);
+	fprintf('\n For out-of-sampling, he R2 ')
 	fprintf('(coefficient of determination) is:\n')
 	fprintf('%f\n', R2)
