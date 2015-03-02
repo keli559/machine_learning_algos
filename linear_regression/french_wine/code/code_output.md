@@ -1,0 +1,33 @@
+octave:15> mainProgram
+Loading data ...
+Fist 10 examples from the dataset:
+X = [   17.12   160.00], y =      7.50
+X = [   16.73    80.00], y =      8.04
+X = [   17.15   130.00], y =      7.69
+X = [   16.13   110.00], y =      6.98
+X = [   16.42   187.00], y =      6.78
+X = [   17.48   187.00], y =      8.08
+X = [   16.42   290.00], y =      6.52
+X = [   17.33    38.00], y =      8.49
+X = [   16.30    52.00], y =      7.39
+X = [   15.72   155.00], y =      6.71
+Program paused. Press enter to continue. 
+Normalizing Features ...
+warning: operator -: automatic broadcasting operation applied
+warning: quotient: automatic broadcasting operation applied
+Running gradient descent ...
+Theta computed from gradient descent: 
+ 7.062239 
+ 0.411159 
+ -0.328098 
+
+warning: operator -: automatic broadcasting operation applied
+warning: quotient: automatic broadcasting operation applied
+
+The predicted price: y_predict = 6.97, the actual price: y= 7.09
+The predicted price: y_predict = 6.95, the actual price: y= 6.50
+
+ For out-of-sampling, he R2 (coefficient of determination) is:
+-39.524423
+octave:16> 
+octave:16> diary off
