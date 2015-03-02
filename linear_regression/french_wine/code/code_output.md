@@ -1,3 +1,4 @@
+```octave
 Loading data ...
 Fist 10 examples from the dataset:
 X = [   17.12   160.00], y =      7.50
@@ -26,3 +27,4 @@ The predicted price: y_predict = 6.95, the actual price: y= 6.50
  For out-of-sampling, he R2 (coefficient of determination) is:
 -39.524423
 
+```
