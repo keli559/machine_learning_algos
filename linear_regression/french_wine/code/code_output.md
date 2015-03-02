@@ -1,5 +1,4 @@
 # Output of the Linear Regression Code by Octave
-$\frac{1}{n} \sum_{i=i}^{n}$
 ```octave
 Loading data ...
 Fist 10 examples from the dataset:
@@ -17,8 +16,9 @@ Program paused. Press enter to continue.
 Normalizing Features ...
 Running gradient descent ...
 ```
-```octave
 ![alt tag](https://github.com/likekeustc/machine_learning_algos/blob/master/linear_regression/french_wine/code/Figure.png)
+
+```octave
 Theta computed from gradient descent: 
  7.062239 
  0.411159 
