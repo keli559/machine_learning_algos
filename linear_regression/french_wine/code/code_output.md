@@ -1,5 +1,5 @@
 # Output of the Linear Regression Code by Octave
-$X^2 \sum{a_i}$
+$\frac{1}{n} \sum_{i=i}^{n}$
 ```octave
 Loading data ...
 Fist 10 examples from the dataset:
