@@ -1,0 +1,52 @@
+# Wine Price Prediction Using Linear Regression
+
+## Synopsis
+The data gives the wine prices and other factors. A linear regression analysis is used to predict wine's price. 
+## Download Data
+
+```{r, cache=T}
+wine = read.csv('wine.csv')
+wineTest = read.csv('wine_test.csv')
+names(wine)
+```
+For each elements, a scatter plot is made to show the relation between price and the factor. Both AGST and HarvestRain show the highest influences over the French wine price. 
+```{r}
+par(mfrow = c(1, 2))
+model1 = lm(Price~AGST, data=wine)
+with(wine, plot(AGST, Price))
+abline(model1)
+
+model1 = lm(Price~HarvestRain, data=wine)
+with(wine, plot(HarvestRain, Price))
+abline(model1)
+```
+## Linear Regression
+
+Now consider AGST and HarvestRain both as variables to predict the wine price using linear regression. 
+
+```{r}
+model2 = lm(Price~AGST+HarvestRain, data=wine)
+predictTest = predict(model2, newdata=wineTest)
+```
+Model2 with AGST and HarvestRain is better than Model1 with only AGST, which is shown through the increasing of adjusted R-squared. The perfect model would have adjusted R-squared as 1.0.  
+```{r}
+summary(model1)
+summary(model2)
+```
+
+```{r}
+#===============Plotting Results==============
+# cut the wine price into 4 bins just to show the relationship of Price vs AGST and HarvestRain.
+wine$PriceRange = cut(wine$Price, 4)
+with(wine, plot(AGST, HarvestRain, pch=unclass(wine$PriceRange)))
+legend('topright', pch=unique(unclass(wine$PriceRange)), legend = unique(wine$PriceRange))
+# pick up three binning points for prices. The goal is to draw the division lines of price range using linear regression results
+q = c(6.78, 7.35, 7.92)
+theta= coef(model2)
+abline(coef = c((theta[1]-q[1])/(-1.0*theta[3]), theta[2]/(-1*theta[3])), col='blue', lwd= 2.0)
+abline(coef = c((theta[1]-q[2])/(-1.0*theta[3]), theta[2]/(-1*theta[3])), col='red', lwd= 2.0)
+abline(coef = c((theta[1]-q[3])/(-1.0*theta[3]), theta[2]/(-1*theta[3])), col='purple', lwd= 2.0)
+legend('bottomleft', lwd = 2.0, 
+lty = 1.0, col = c('blue', 'red', 'purple'), legend = q)
+title('Linear Regression Visualization')
+```
