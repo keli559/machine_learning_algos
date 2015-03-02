@@ -1,3 +1,5 @@
+# Output of the Linear Regression Code by Octave
+$X^2 \sum{a_i}$
 ```octave
 Loading data ...
 Fist 10 examples from the dataset:
@@ -14,6 +16,8 @@ X = [   15.72   155.00], y =      6.71
 Program paused. Press enter to continue. 
 Normalizing Features ...
 Running gradient descent ...
+```
+```octave
 ![alt tag](https://github.com/likekeustc/machine_learning_algos/blob/master/linear_regression/french_wine/code/Figure.png)
 Theta computed from gradient descent: 
  7.062239 
