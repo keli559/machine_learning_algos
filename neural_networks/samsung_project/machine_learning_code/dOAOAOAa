@@ -1,0 +1,25 @@
+Loading and Visualizing Data ...
+Training sets have 242 records.
+First 10 records are: 
+ X_train =  0.29, -0.04, -0.15, -0.98  ..., y_test = sitting 
+ X_train =  0.30, -0.00, -0.15, -0.96  ..., y_test = sitting 
+ X_train =  0.02, -0.01, -0.03, -0.66  ..., y_test = laying 
+ X_train =  0.28, -0.02, -0.11, -1.00  ..., y_test = sitting 
+ X_train =  0.28, -0.02, -0.11, -0.99  ..., y_test = laying 
+ X_train =  0.28, -0.02, -0.11, -1.00  ..., y_test = standing 
+ X_train =  0.28, -0.02, -0.13, -0.99  ..., y_test = standing 
+ X_train =  0.21,  0.01, -0.12, -0.21  ..., y_test = walk 
+ X_train =  0.41, -0.06, -0.12, -0.02  ..., y_test = walkup 
+ X_train =  0.28, -0.02, -0.11, -1.00  ..., y_test = sitting 
+Testing sets have 105 records.
+First 10 records are: 
+ X =  0.29, -0.04, -0.15, -0.98  ..., y = 2 
+ X =  0.30, -0.00, -0.15, -0.96  ..., y = 2 
+ X =  0.02, -0.01, -0.03, -0.66  ..., y = 1 
+ X =  0.28, -0.02, -0.11, -1.00  ..., y = 2 
+ X =  0.28, -0.02, -0.11, -0.99  ..., y = 1 
+ X =  0.28, -0.02, -0.11, -1.00  ..., y = 3 
+ X =  0.28, -0.02, -0.13, -0.99  ..., y = 3 
+ X =  0.21,  0.01, -0.12, -0.21  ..., y = 4 
+ X =  0.41, -0.06, -0.12, -0.02  ..., y = 5 
+ X =  0.28, -0.02, -0.11, -1.00  ..., y = 2 

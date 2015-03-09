@@ -1,0 +1,2 @@
+
+write.table(unclass(sub1$activity), './y.csv')
