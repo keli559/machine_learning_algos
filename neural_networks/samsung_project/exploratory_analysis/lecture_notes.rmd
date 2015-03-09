@@ -7,7 +7,8 @@ The data is about using Samsung Galaxy to track human activities by measuring mo
 
 ## 1. Download the data
 <span style='color:steelblue'>file.exists</span> is used to check whether the data file already exists. In this way, repetative downloading would not happen. 
-```{r, chache=T}
+```{r, cache=T}
+setwd('../data/')
 if(!file.exists('./samsungData.rda')){
 	url = 'https://d396qusza40orc.cloudfront.net/exdata/data/clusteringEx_data.zip'
 	download.file(url, 'data.zip', method = 'curl')
@@ -20,19 +21,21 @@ if(!file.exists('./samsungData.rda')){
 # 'rda' is short for .RData. It is the usual format for saving R objects
 # with save() or save.image()
 # load() is used to reload the rda file.
-load('./samsungData.rda')
+#load('./samsungData.rda')
+samsungData = read.csv('./samsungData_Li.csv')
+setwd('../exploratory_analysis/')
 ```
 ## 2. Basic Data Structure
 The data has <span style='color:red'>7352</span> records and <span style='color:red'>563</span> variables.
-```{r, chache=T}
+```{r, cache=T}
 dim(samsungData)
 ```
 The first 18 variables are listed out:
-```{r, chache = T}
+```{r, cache = T}
 names(samsungData)[1:18]
 ```
 There are 6 activities: laying, sitting, standing, walking, walking down, walking up.
-```{r, chache = T}
+```{r, cache = T}
 table(samsungData$activity)
 ```
 ## 3. Plotting avarage acceleration for first subject
@@ -163,3 +166,13 @@ plot(kClust$center[4, 1:10], pch=19, ylab='Cluster Center', xlab='')
 
 For example, walking has couple of other variables dominantly to distinguish walking from other activities.
 
+## 8. Write Data for Neural Networks
+As a demo for Neural Networks, I chose only the data with (subject == 1) for machine learning purpose. The variables are separated from activity. All 561 variables are stored in X.csv and the activity is stored in y.csv.
+```{r, cache=T}
+# write the accelerometer data to file. 
+# 1. write activity into file 'y.csv'
+write.table(unclass(sub1$activity), '../data/y.csv', sep=',', row.names = F, col.names=F)
+# 2. write activity into file 'X.csv'
+write.table(unclass(sub1[,c(1:561)]), '../data/X.csv', sep=',', row.names = F, col.names=F)
+
+```

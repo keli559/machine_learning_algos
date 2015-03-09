@@ -9,6 +9,7 @@ The data is about using Samsung Galaxy to track human activities by measuring mo
 <span style='color:steelblue'>file.exists</span> is used to check whether the data file already exists. In this way, repetative downloading would not happen. 
 
 ```r
+setwd('../data/')
 if(!file.exists('./samsungData.rda')){
 	url = 'https://d396qusza40orc.cloudfront.net/exdata/data/clusteringEx_data.zip'
 	download.file(url, 'data.zip', method = 'curl')
@@ -21,7 +22,9 @@ if(!file.exists('./samsungData.rda')){
 # 'rda' is short for .RData. It is the usual format for saving R objects
 # with save() or save.image()
 # load() is used to reload the rda file.
-load('./samsungData.rda')
+#load('./samsungData.rda')
+samsungData = read.csv('./samsungData_Li.csv')
+setwd('../exploratory_analysis/')
 ```
 ## 2. Basic Data Structure
 The data has <span style='color:red'>7352</span> records and <span style='color:red'>563</span> variables.
@@ -31,7 +34,7 @@ dim(samsungData)
 ```
 
 ```
-## [1] 7352  563
+## [1] 10299   563
 ```
 The first 18 variables are listed out:
 
@@ -40,12 +43,12 @@ names(samsungData)[1:18]
 ```
 
 ```
-##  [1] "tBodyAcc-mean()-X"   "tBodyAcc-mean()-Y"   "tBodyAcc-mean()-Z"  
-##  [4] "tBodyAcc-std()-X"    "tBodyAcc-std()-Y"    "tBodyAcc-std()-Z"   
-##  [7] "tBodyAcc-mad()-X"    "tBodyAcc-mad()-Y"    "tBodyAcc-mad()-Z"   
-## [10] "tBodyAcc-max()-X"    "tBodyAcc-max()-Y"    "tBodyAcc-max()-Z"   
-## [13] "tBodyAcc-min()-X"    "tBodyAcc-min()-Y"    "tBodyAcc-min()-Z"   
-## [16] "tBodyAcc-sma()"      "tBodyAcc-energy()-X" "tBodyAcc-energy()-Y"
+##  [1] "tBodyAcc.mean...X"   "tBodyAcc.mean...Y"   "tBodyAcc.mean...Z"  
+##  [4] "tBodyAcc.std...X"    "tBodyAcc.std...Y"    "tBodyAcc.std...Z"   
+##  [7] "tBodyAcc.mad...X"    "tBodyAcc.mad...Y"    "tBodyAcc.mad...Z"   
+## [10] "tBodyAcc.max...X"    "tBodyAcc.max...Y"    "tBodyAcc.max...Z"   
+## [13] "tBodyAcc.min...X"    "tBodyAcc.min...Y"    "tBodyAcc.min...Z"   
+## [16] "tBodyAcc.sma.."      "tBodyAcc.energy...X" "tBodyAcc.energy...Y"
 ```
 There are 6 activities: laying, sitting, standing, walking, walking down, walking up.
 
@@ -54,9 +57,7 @@ table(samsungData$activity)
 ```
 
 ```
-## 
-##   laying  sitting standing     walk walkdown   walkup 
-##     1407     1286     1374     1226      986     1073
+## < table of extent 0 >
 ```
 ## 3. Plotting avarage acceleration for first subject
 
@@ -169,6 +170,7 @@ svd1 = svd(scale(sub1[, -c(562, 563)]))
 sub1$u1 = svd1$u[, 1]
 sub1$u2 = svd1$u[, 2]
 sub1$u3 = svd1$u[, 3]
+
 distanceMatrix = dist(sub1[, c(1, 2, 3)])
 # plot clustering using these selected variables:
 hclustering = hclust(distanceMatrix)
@@ -189,12 +191,12 @@ table(kClust$cluster, sub1$activity)
 ```
 ##    
 ##     laying sitting standing walk walkdown walkup
-##   1     29       0        0    0        0      0
-##   2      0       0        0    0       49      0
-##   3      3       0        0    0        0     53
-##   4      0       0        0   95        0      0
-##   5     18      10        2    0        0      0
-##   6      0      37       51    0        0      0
+##   1     27      37       51    0        0      0
+##   2      3       0        0    0        0     53
+##   3      0       0        0    0       48      0
+##   4      0       0        0   35        0      0
+##   5     20      10        2    0        0      0
+##   6      0       0        0   60        1      0
 ```
 
 The first try didn't really line up between the clusters and activities...
@@ -210,12 +212,12 @@ table(kClust$cluster, sub1$activity)
 ```
 ##    
 ##     laying sitting standing walk walkdown walkup
-##   1      0       0        0   95        0      0
-##   2      3       0        0    0        0     53
-##   3     18      10        2    0        0      0
-##   4      0       0        0    0       49      0
-##   5     29       0        0    0        0      0
-##   6      0      37       51    0        0      0
+##   1     29       0        0    0        0      0
+##   2      0       0        0   95        0      0
+##   3      0       0        0    0       49      0
+##   4     18      10        2    0        0      0
+##   5      0      37       51    0        0      0
+##   6      3       0        0    0        0     53
 ```
 
 It seems walking down, walking up, walking, and laying are recognized by the clusters. The non-moving activities are not well recognized...
@@ -241,3 +243,13 @@ plot(kClust$center[4, 1:10], pch=19, ylab='Cluster Center', xlab='')
 
 For example, walking has couple of other variables dominantly to distinguish walking from other activities.
 
+## 8. Write Data for Neural Networks
+As a demo for Neural Networks, I chose only the data with (subject == 1) for machine learning purpose. The variables are separated from activity. All 561 variables are stored in X.csv and the activity is stored in y.csv.
+
+```r
+# write the accelerometer data to file. 
+# 1. write activity into file 'y.csv'
+write.table(unclass(sub1$activity), '../data/y.csv', sep=',', row.names = F, col.names=F)
+# 2. write activity into file 'X.csv'
+write.table(unclass(sub1[,c(1:561)]), '../data/X.csv', sep=',', row.names = F, col.names=F)
+```

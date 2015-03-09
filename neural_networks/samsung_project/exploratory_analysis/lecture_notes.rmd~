@@ -106,6 +106,29 @@ What is this variable that can separate the moving activities? Let's see:
 ```{r}
 names(samsungData)[maxContrib]
 ```
+ 
+### Principle Component Analysis
+
+It would be interesting to calculate the top three principle components, as linear combinations of all the variables.
+
+```{r, cache=T}
+source('myplclust.r')
+# SVD analysis provides the UDV, 
+# where U[, 1] gives the most dominant 
+#pattern along rows and V[, 1] gives the 
+#most dominant pattern along columes. 
+svd1 = svd(scale(sub1[, -c(562, 563)]))
+# 
+sub1$u1 = svd1$u[, 1]
+sub1$u2 = svd1$u[, 2]
+sub1$u3 = svd1$u[, 3]
+
+distanceMatrix = dist(sub1[, c(1, 2, 3)])
+# plot clustering using these selected variables:
+hclustering = hclust(distanceMatrix)
+myplclust(hclustering, lab.col=unclass(sub1$activity))
+```
+
 ## 6. K-means Clustering (nstart =1, first try)
 In the K-means clustering, nstart here refers to the number of starting configerations (initial guesses). And the result would give the most prominent option. 
 ```{r, cache=T}
@@ -139,5 +162,4 @@ plot(kClust$center[4, 1:10], pch=19, ylab='Cluster Center', xlab='')
 ```
 
 For example, walking has couple of other variables dominantly to distinguish walking from other activities.
-
 

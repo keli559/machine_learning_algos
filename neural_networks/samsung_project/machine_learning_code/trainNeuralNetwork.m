@@ -61,7 +61,7 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 %  After you have completed the assignment, change the MaxIter to a larger
 %  value to see how more training helps.
-options = optimset('MaxIter', 50);
+options = optimset('MaxIter', 80);
 
 % Create "short hand" for the cost function to be minimized
 costFunction = @(p) nnCostFunction(p, ...

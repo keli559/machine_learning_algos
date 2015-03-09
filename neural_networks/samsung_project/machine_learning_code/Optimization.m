@@ -14,8 +14,10 @@ warning('off','all');
 
 % Load all data from ../X.csv and ../y.csv
 fprintf('Loading and Visualizing Data ...\n')
-X = csvread('../X.csv');
-y = csvread('../y.csv');
+cd('../data/')
+X = csvread('./X.csv');
+y = csvread('./y.csv');
+cd('../machine_learning_code/')
 m = size(X, 1);
 
 %%============Part 2: Split Data into Train, Cross Validation, Test=========
@@ -105,54 +107,57 @@ fprintf('\nTesting Set Accuracy: %f\n', mean(double(predtest == ytest)) * 100);
                                   );
 fprintf('J_test = %5.2f \n', Jtest);
 pause;
-%%% =========== Part 4: Learning Curve for Number of Training Samples========
-%% an experiment is made with Neural Network with various numbers 
-%% of hidden layer unit
-%fprintf('\n===Learning Cure for Numbers of Training Samples===\n')
-%  lambda = 0.0;
-%  [error_train, error_val] = ...
-%    learningCurve(Xtrain, ytrain, Xval, yval, ...
-%		  lambda, hidden_layer_size, num_labels);
-%indices = (1:length(error_train))(error_train~=0);
-%plot(indices, error_train(indices), indices, error_val(indices));
-%title('Learning curves for Neural Network')
-%legend('Train', 'Cross Validation')
-%xlabel('Number of traning examples')
-%ylabel('Error')
-%
-%
-%fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
-%for i = indices
-%    fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
-%end
-%
-%fprintf('Program paused. Press enter to continue.\n');
-%pause;
-%
-%%% =========== Part 8: Validation for Selecting Lambda =============
-%%  You will now implement validationCurve to test various values of 
-%%  lambda on a validation set. You will then use this to select the
-%%  "best" lambda value.
-%fprintf('\n===Validation for Selecting Lambda===\n')
-%[lambda_vec, error_train, error_val] = ...
-%  validationCurve(Xtrain, ytrain, Xval, yval, hidden_layer_size, num_labels);
-%
-%close all;
-%plot(lambda_vec, error_train, lambda_vec, error_val);
-%title('Validation Curves for Neural Network (lambda)')
-%legend('Train', 'Cross Validation');
-%xlabel('lambda');
-%ylabel('Error');
-%
-%fprintf('lambda\t\tTrain Error\tValidation Error\n');
-%for i = 1:length(lambda_vec)
-%	fprintf(' %f\t%f\t%f\n', ...
-%            lambda_vec(i), error_train(i), error_val(i));
-%end
-%
-%fprintf('Program paused. Press enter to continue.\n');
-%pause;
-%
+%% =========== Part 4: Learning Curve for Number of Training Samples========
+% an experiment is made with Neural Network with various numbers 
+% of hidden layer unit
+fprintf('\n===Learning Cure for Numbers of Training Samples===\n')
+  lambda = 0.0;
+  [error_train, error_val] = ...
+    learningCurve(Xtrain, ytrain, Xval, yval, ...
+		  lambda, hidden_layer_size, num_labels);
+indices = (1:length(error_train))(error_train~=0);
+close all;
+plot(indices, error_train(indices), indices, error_val(indices));
+title('Learning curves for Neural Network')
+legend('Train', 'Cross Validation')
+xlabel('Number of traning examples')
+ylabel('Error')
+print('training_examples.png')
+
+
+fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
+for i = indices
+    fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
+end
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
+
+%% =========== Part 8: Validation for Selecting Lambda =============
+%  You will now implement validationCurve to test various values of 
+%  lambda on a validation set. You will then use this to select the
+%  "best" lambda value.
+fprintf('\n===Validation for Selecting Lambda===\n')
+[lambda_vec, error_train, error_val] = ...
+  validationCurve(Xtrain, ytrain, Xval, yval, hidden_layer_size, num_labels);
+
+close all;
+plot(lambda_vec, error_train, lambda_vec, error_val);
+title('Validation Curves for Neural Network (lambda)')
+legend('Train', 'Cross Validation');
+xlabel('lambda');
+ylabel('Error');
+print('lambda.png')
+
+fprintf('lambda\t\tTrain Error\tValidation Error\n');
+for i = 1:length(lambda_vec)
+	fprintf(' %f\t%f\t%f\n', ...
+            lambda_vec(i), error_train(i), error_val(i));
+end
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
+
 %% =========== Part 8: Validation for Hidden Layer Size =============
 %  You will now implement validationCurve to test various values hidden
 % layer size on a validation set. You will then use this to select the
@@ -169,6 +174,7 @@ title('Validation Curves for Neural Network (hidden layer size)')
 legend('Train', 'Cross Validation');
 xlabel('Hidden layer size');
 ylabel('Error');
+print('hidden_layer_size.png')
 
 fprintf('Hidden Layer Size\t\tTrain Error\tValidation Error\n');
 for i = 1:length(hidden_layer_size_vec)
