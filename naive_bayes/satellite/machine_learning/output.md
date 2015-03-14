@@ -15,7 +15,7 @@ Data has 67877 records, and 12 variables.
   -34.1 -116.3  180.8  115.7 ...   0.0
   -34.0 -116.3  183.9  115.4 ...   0.0
 ```
-
+![ch_rain](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/signal_rain.png)
 ```
 ==Bin Data==
 Bin data into 0.5 x 0.5 degree pixels for surface categorization.
@@ -24,7 +24,7 @@ Press any key to continue.
 ==K-means Clustering==
 Number of Clusters: 7
 ```
-
+![surfTypes](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/landTypes.png)
 ```
 ==Split Data==
 Split data into train, val, test sets...
