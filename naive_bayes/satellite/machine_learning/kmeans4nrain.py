@@ -104,6 +104,6 @@ class kmeans4nrain:
        x1, y1 = map(latlon[:, 1], latlon[:, 0])
        map.scatter(x1, y1, cmap = mycolormap,\
                    c = latlon[:, 2]+1, vmin = 0, vmax = self.surfTypeNum+1, lw = 0)
-       plt.savefig('landTypes.png')
+       plt.savefig('landTypes.png', bbox_inches='tight')
        plt.show()
 

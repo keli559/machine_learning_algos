@@ -28,5 +28,12 @@ for (type in alltypes){
 }
 colnames(result) = c('lat', 'lon', 'pc1', 'pc2', 'pc3', 'rain', 'type')
 
+#
+par(mfrow = c(1, 3))
+plot(result[, 3], pch=19, col = result$type, ylab=names(result)[3])
+legend('topleft', legend = unique(result$type), col=unique(result$type), pch=1)
+plot(result[, 4], pch=19, col = result$type, ylab=names(result)[4])
+plot(result[, 5], pch=19, col = result$type, ylab=names(result)[5])
+
 
 
