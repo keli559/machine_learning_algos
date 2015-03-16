@@ -1,3 +1,5 @@
+## Loading Sample Data
+
 ```
 Loading sample data ...
 
@@ -16,6 +18,9 @@ Data has 67877 records, and 12 variables.
   -34.0 -116.3  183.9  115.4 ...   0.0
 ```
 ![ch_rain](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/signal_rain.png)
+
+## K-means Clustering 
+
 ```
 ==Bin Data==
 Bin data into 0.5 x 0.5 degree pixels for surface categorization.
@@ -29,4 +34,7 @@ Number of Clusters: 7
 ## Principle Component Analysis
 
 [videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
+
+## Bayesian Classifier
+
 
