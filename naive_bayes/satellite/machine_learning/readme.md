@@ -44,7 +44,7 @@ Number of Clusters: 7
 
 
 ## Validation
-![comparison](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/validations.png)
+![comparison](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/validation.png)
 ![diagnosis1](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide1.png)
 ![diagnosis2](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide2.png)
 ![diagnosis3](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide3.png)
