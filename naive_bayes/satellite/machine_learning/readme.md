@@ -1,3 +1,8 @@
+## Synopsis
+[SandySnap]()
+[SandyVideo](https://www.youtube.com/watch?feature=player_embedded&v=pT6dPuS7XCk)
+
+
 ## Loading Sample Data
 
 ```
@@ -36,5 +41,7 @@ Number of Clusters: 7
 [videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
 
 ## Bayesian Classifier
+
+## Validation
 
 
