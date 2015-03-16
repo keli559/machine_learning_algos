@@ -27,13 +27,21 @@ for (type in alltypes){
     result=rbind(result, cbind(locsub, Ssub$u, ysub, surf[surf==type]))
 }
 colnames(result) = c('lat', 'lon', 'pc1', 'pc2', 'pc3', 'rain', 'type')
+#
+result[, 3:5] = round(result[, 3:5], 2)
+rainBins = c(-0.0001, 0, 0.01, 0.02, 0.03, 
+	 0.05, 0.1, 0.2, 0.3, 0.5, 1.0, 1.7, 
+	 3.0, 5.2, 10.0, 17.0, 30)
+result$range = cut(result$rain, rainBins)
 
 #
-par(mfrow = c(1, 3))
-plot(result[, 3], pch=19, col = result$type, ylab=names(result)[3])
-legend('topleft', legend = unique(result$type), col=unique(result$type), pch=1)
-plot(result[, 4], pch=19, col = result$type, ylab=names(result)[4])
-plot(result[, 5], pch=19, col = result$type, ylab=names(result)[5])
-
-
+#par(mfrow = c(1, 3))
+#plot(result[, 3], pch=19, col = result$type, ylab=names(result)[3])
+#legend('topleft', legend = unique(result$type), col=unique(result$type), pch=1)
+#plot(result[, 4], pch=19, col = result$type, ylab=names(result)[4])
+#plot(result[, 5], pch=19, col = result$type, ylab=names(result)[5])
+#
+subData = subset(result, (type == 3)&(pc1==0.04))
+predict = mean(subData$rain)
+barplot(table(subData$range))
 
