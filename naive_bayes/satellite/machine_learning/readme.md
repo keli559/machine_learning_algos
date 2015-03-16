@@ -1,8 +1,6 @@
 ## Synopsis
-[SandySnap]()
+![SandySnap](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/SandySnap.png)
 [SandyVideo](https://www.youtube.com/watch?feature=player_embedded&v=pT6dPuS7XCk)
-
-
 ## Loading Sample Data
 
 ```
@@ -37,11 +35,18 @@ Number of Clusters: 7
 ![surfTypes](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/landTypes.png)
 
 ## Principle Component Analysis
-
+![pcSnap](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/pcs.png)
 [videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
 
 ## Bayesian Classifier
 
-## Validation
+![bayes](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/bayesian_pdfs.png)
 
+
+## Validation
+![comparison](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/validations.png)
+![diagnosis1](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/val1.png)
+![diagnosis2](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide2.png)
+![diagnosis3](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide3.png)
+![diagnosis4](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/slide4.png)
 
