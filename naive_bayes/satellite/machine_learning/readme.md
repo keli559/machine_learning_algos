@@ -28,5 +28,5 @@ Number of Clusters: 7
 
 ## Principle Component Analysis
 
-![videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
+[videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
 
