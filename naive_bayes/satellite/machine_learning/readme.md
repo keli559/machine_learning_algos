@@ -25,13 +25,8 @@ Press any key to continue.
 Number of Clusters: 7
 ```
 ![surfTypes](https://github.com/likekeustc/machine_learning_algos/blob/master/naive_bayes/satellite/machine_learning/landTypes.png)
-```
-==Split Data==
-Split data into train, val, test sets...
 
-Training set has 40552 records
+## Principle Component Analysis
 
-Cross Val set has 13518 records
+![videoPCs](https://www.youtube.com/watch?feature=player_embedded&v=XoNRuA1i0tU)
 
-Test set has 13518 records
-```
